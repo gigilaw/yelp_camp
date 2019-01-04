@@ -4,15 +4,15 @@ let bodyParser = require(`body-parser`);
 let campgrounds = [
   {
     name: `Salmon Creek`,
-    image: `https://www.nps.gov/shen/planyourvisit/images/20170712_A7A9022_nl_Campsites_BMCG_960.jpg?maxwidth=1200&maxheight=1200&autorotate=false`
+    image: `http://www.suttonfalls.com/communities/4/004/012/498/244//images/4628314067_550x441.jpg`
   },
   {
     name: `Granite Hill`,
-    image: `http://haulihuvila.com/wp-content/uploads/2012/08/hauli-huvila-campgrounds-header.jpg`
+    image: `https://4.bp.blogspot.com/-juu6Bp3IIkg/VAiFAquwotI/AAAAAAAAaOo/xvh3tQmCTtMTN7muYen7W5EwfmSvTgoegCKgB/s640/IMGP9575.JPG`
   },
   {
     name: `Mountain Goat's Rest`,
-    image: `https://www.planetware.com/photos-large/USUT/utah-zion-national-park-camping-south-campground.jpg`
+    image: `https://www.nps.gov/crmo/planyourvisit/images/moon-over-group-campground.JPG?maxwidth=650&autorotate=false`
   }
 ];
 

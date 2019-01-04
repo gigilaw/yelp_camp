@@ -4,18 +4,29 @@
     <title>Yelp Camp</title>
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
     />
   </head>
   <body>
-    <h1>This is the campgrounds page</h1>
-    <a href="/campgrounds/new">Add a new campground!</a> <%
-    campgrounds.forEach(function(campground){ %>
-    <div>
-      <h4><%= campground.name %></h4>
-      <img src='<%= campground.image %>'
-    </div>
+    <div class="container">
+      <header class="jumbotron">
+        <div class="container">
+          <h1>Welcome to Yelp Camp</h1>
+          <p>View our best campgrounds!</p>
+          <p><a class="btn btn-primary btn-lg" href="/campgrounds/new">Add a new campground!</a></p>
+        </div>
+      </header>
 
-    <% }) %>
+      <div class="row text-center" style="display:flex; flex-wrap: wrap">
+        <% campgrounds.forEach(function(campground){ %>
+        <div class="col-md-3 col-sm-6">
+          <div class="thumbnail">
+            <img src="<%= campground.image %>" />
+            <div class="caption"><h4><%= campground.name %></h4></div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
   </body>
 </html>
