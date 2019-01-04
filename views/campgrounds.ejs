@@ -9,11 +9,11 @@
   </head>
   <body>
     <h1>This is the campgrounds page</h1>
-
-    <% campgrounds.forEach(function(campground){ %>
+    <a href="/campgrounds/new">Add a new campground!</a> <%
+    campgrounds.forEach(function(campground){ %>
     <div>
       <h4><%= campground.name %></h4>
-      <img src='<%= campground.img %>'
+      <img src='<%= campground.image %>'
     </div>
 
     <% }) %>
