@@ -1,9 +1,21 @@
-<h1>This is the campgrounds page</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yelp Camp</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <h1>This is the campgrounds page</h1>
 
-<% campgrounds.forEach(function(campground){ %>
-<div>
-  <h4><%= campground.name %></h4>
-  <img src='<%= campground.img %>'
-</div>
+    <% campgrounds.forEach(function(campground){ %>
+    <div>
+      <h4><%= campground.name %></h4>
+      <img src='<%= campground.img %>'
+    </div>
 
-<% }) %>
+    <% }) %>
+  </body>
+</html>
