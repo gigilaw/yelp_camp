@@ -18,35 +18,6 @@ let campgroundSchema = new mongoose.Schema({
 
 let Campground = mongoose.model('Campground', campgroundSchema);
 
-// Campground.create(
-//   {
-//     name: `Granite Hill`,
-//     image: `https://4.bp.blogspot.com/-juu6Bp3IIkg/VAiFAquwotI/AAAAAAAAaOo/xvh3tQmCTtMTN7muYen7W5EwfmSvTgoegCKgB/s640/IMGP9575.JPG`
-//   },
-//   function(err, campground) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(campground);
-//     }
-//   }
-// );
-
-let campgrounds = [
-  {
-    name: `Salmon Creek`,
-    image: `http://www.suttonfalls.com/communities/4/004/012/498/244//images/4628314067_550x441.jpg`
-  },
-  {
-    name: `Granite Hill`,
-    image: `https://4.bp.blogspot.com/-juu6Bp3IIkg/VAiFAquwotI/AAAAAAAAaOo/xvh3tQmCTtMTN7muYen7W5EwfmSvTgoegCKgB/s640/IMGP9575.JPG`
-  },
-  {
-    name: `Mountain Goat's Rest`,
-    image: `https://www.nps.gov/crmo/planyourvisit/images/moon-over-group-campground.JPG?maxwidth=650&autorotate=false`
-  }
-];
-
 app.get('/', function(req, res) {
   res.render('landing');
 });
@@ -64,9 +35,14 @@ app.post(`/campgrounds`, function(req, res) {
   let name = req.body.name;
   let img = req.body.img;
   let newCampground = { name: name, image: img };
-  campgrounds.push(newCampground);
-  res.redirect(`campgrounds`);
-  console.log(img);
+  //create new campground and save to DB;
+  Campground.create(newCampground, function(err, newlyCreated) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect(`campgrounds`);
+    }
+  });
 });
 
 app.get(`/campgrounds/new`, function(req, res) {
