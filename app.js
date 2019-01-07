@@ -13,10 +13,18 @@ app.set(`view engine`, `ejs`);
 //Schema Setup
 let campgroundSchema = new mongoose.Schema({
   name: String,
-  image: String
+  image: String,
+  description: String
 });
 
 let Campground = mongoose.model('Campground', campgroundSchema);
+
+// //Create Campground
+// Campground.create({
+//   name: 'Salmon Creek',
+//   image: 'http://www.suttonfalls.com/communities/4/004/012/498/244//images/4628314067_550x441.jpg',
+//   description: 'Salmon. Lots of salmon'
+// });
 
 app.get('/', function(req, res) {
   res.render('landing');
@@ -26,7 +34,7 @@ app.get(`/campgrounds`, function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render(`campgrounds`, { campgrounds: allCampgrounds });
+      res.render(`index`, { campgrounds: allCampgrounds });
     }
   });
 });
@@ -34,7 +42,8 @@ app.get(`/campgrounds`, function(req, res) {
 app.post(`/campgrounds`, function(req, res) {
   let name = req.body.name;
   let img = req.body.img;
-  let newCampground = { name: name, image: img };
+  let des = req.body.description;
+  let newCampground = { name: name, image: img, description: des };
   //create new campground and save to DB;
   Campground.create(newCampground, function(err, newlyCreated) {
     if (err) {
@@ -47,6 +56,18 @@ app.post(`/campgrounds`, function(req, res) {
 
 app.get(`/campgrounds/new`, function(req, res) {
   res.render(`new`);
+});
+
+app.get('/campgrounds/:id', function(req, res) {
+  //find campground with said ID
+  Campground.findById(req.params.id, function(err, foundCampground) {
+    if (err) {
+      console.log(err);
+    } else {
+      //render template with said ID
+      res.render('show', { campground: foundCampground });
+    }
+  });
 });
 
 app.listen(3000, () => {
