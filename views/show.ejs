@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <Title>Yelp Camp</Title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-    />
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="/">Yelp Camp</a></div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Login</a></li>
-            <li><a href="/">Sign Up</a></li>
-            <li><a href="/">Logout</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <h1><%= campground.name %></h1>
-    <img src="<%= campground.image %>" />
-    <p><%= campground.description %></p>
-  </body>
-</html>
+<% include ./header %>
+<h1><%= campground.name %></h1>
+<img src="<%= campground.image %>" />
+<p><%= campground.description %></p>
