@@ -18,6 +18,20 @@ app.set(`view engine`, `ejs`);
 app.use(express.static(__dirname + '/public'));
 seedDB();
 
+//Passport config
+app.use(
+  require('express-session')({
+    secret: 'lalalalalala',
+    resave: false,
+    saveUninitialized: false
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(user.authenticate()));
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
+
 app.get('/', function(req, res) {
   res.render('landing');
 });
