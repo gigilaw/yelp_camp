@@ -79,7 +79,7 @@ app.get('/campgrounds/:id', function(req, res) {
 });
 
 //COMMENTS ROUTE
-app.get('/campgrounds/:id/comments/new', function(req, res) {
+app.get('/campgrounds/:id/comments/new', isLoggedIn, function(req, res) {
   //find campground id
   Campground.findById(req.params.id, function(err, foundCampground) {
     if (err) {
@@ -146,6 +146,18 @@ app.post(
   function(req, res) {}
 );
 
+//Logout logic
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/campgrounds');
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
 app.listen(3000, () => {
   console.log('Server Started');
 });
