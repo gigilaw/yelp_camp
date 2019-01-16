@@ -5,6 +5,9 @@ let mongoose = require('mongoose');
 let Campground = require('./models/campgrounds');
 let seedDB = require('./seeds');
 let Comment = require('./models/comment');
+let passport = require('passport');
+let localStrategy = require('passport-local');
+let user = require('./models/user');
 
 mongoose.connect(
   'mongodb://localhost/yelp_camp',
