@@ -112,6 +112,25 @@ app.post('/campgrounds/:id/comments', function(req, res) {
   });
 });
 
+//Auth Routes
+//Show register form
+app.get('/register', function(req, res) {
+  res.render('register');
+});
+//Signup
+app.post('/register', function(req, res) {
+  let newUser = new user({ username: req.body.username });
+  user.register(newUser, req.body.password, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.render('register');
+    }
+    passport.authenticate('local')(req, res, function() {
+      res.redirect('/campgrounds');
+    });
+  });
+});
+
 app.listen(3000, () => {
   console.log('Server Started');
 });
