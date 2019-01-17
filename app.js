@@ -41,8 +41,8 @@ app.use(function(req, res, next) {
 });
 
 app.use(indexRoutes);
-app.use(campgroundRoutes);
-app.use(commentRoutes);
+app.use('/campgrounds', campgroundRoutes);
+app.use('/campgrounds/:id/comments', commentRoutes);
 
 app.listen(3000, () => {
   console.log('Server Started');
