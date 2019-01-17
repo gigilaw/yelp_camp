@@ -2,9 +2,7 @@ let express = require('express');
 let app = express();
 let bodyParser = require(`body-parser`);
 let mongoose = require('mongoose');
-let Campground = require('./models/campgrounds');
 let seedDB = require('./seeds');
-let Comment = require('./models/comment');
 let passport = require('passport');
 let localStrategy = require('passport-local');
 let user = require('./models/user');
@@ -20,7 +18,7 @@ mongoose.connect(
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set(`view engine`, `ejs`);
 app.use(express.static(__dirname + '/public'));
-seedDB();
+//seedDB();
 
 //Passport config
 app.use(
