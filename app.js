@@ -6,6 +6,7 @@ let seedDB = require('./seeds');
 let passport = require('passport');
 let localStrategy = require('passport-local');
 let user = require('./models/user');
+let methodOverride = require('method-override');
 
 let commentRoutes = require('./routes/comments');
 let campgroundRoutes = require('./routes/campgrounds');
@@ -18,6 +19,7 @@ mongoose.connect(
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set(`view engine`, `ejs`);
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride('_method'));
 //seedDB();
 
 //Passport config
