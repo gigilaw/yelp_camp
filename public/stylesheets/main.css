@@ -13,3 +13,17 @@
 #delete-form {
   display: inline;
 }
+
+.row h1 {
+  text-align: center;
+}
+
+.form-group {
+  width: 30%;
+  margin: 15px auto;
+}
+
+.button {
+  margin: 25px auto;
+  padding: 0 35%;
+}
