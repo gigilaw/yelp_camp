@@ -53,3 +53,7 @@ app.use('/campgrounds/:id/comments', commentRoutes);
 app.listen(3000, () => {
   console.log('Server Started');
 });
+
+app.get('/map', function(req, res) {
+  res.render('map');
+});
