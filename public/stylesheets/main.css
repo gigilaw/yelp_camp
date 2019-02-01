@@ -27,3 +27,8 @@
   margin: 25px auto;
   padding: 0 35%;
 }
+
+#map {
+  height: 400px;
+  width: 100px;
+}
