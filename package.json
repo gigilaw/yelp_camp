@@ -3,34 +3,37 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gigilaw/yelp_camp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gigilaw/yelp_camp/issues"
+  },
+  "homepage": "https://github.com/gigilaw/yelp_camp#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
-    "eslint": "^5.11.1",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-prettier": "^3.0.1",
+    "emmet": "^1.6.3",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "geocoder": "^0.2.3",
     "method-override": "^3.0.0",
     "moment": "^2.24.0",
-    "mongodb": "^3.1.10",
-    "mongoose": "^5.4.2",
+    "mongoose": "^5.4.9",
     "node-geocoder": "^3.22.0",
     "nodemon": "^1.18.9",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
-    "prettier": "^1.15.3",
     "request": "^2.88.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Gigi",
-  "license": "ISC"
+  }
 }

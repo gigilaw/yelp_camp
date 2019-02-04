@@ -1,3 +1,6 @@
+body {
+  margin-bottom: 60px;
+}
 .thumbnail img {
   width: 100%;
 }
@@ -31,4 +34,9 @@
 #map {
   height: 400px;
   width: 260px;
+}
+
+.signUp {
+  width: 30%;
+  margin: 15px auto;
 }
