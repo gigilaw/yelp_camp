@@ -1,21 +1,24 @@
 <% include ../header %>
 
-<div class="row">
-  <div class="col-md-4">
+<div id="user" class="row">
+  <div class="col-md-4 col-xs-6">
     <h1><%= user.firstName + ' ' + user.lastName%></h1>
     <div id="userProfile" class="thumbnail">
       <img src="<%=user.avatar%>" alt="user profile image" />
-      <div class="caption"><a href="mailto:<%=user.email%>"><%= user.email%></a></div>
+      <div class="caption">
+        email: <a href="mailto:<%=user.email%>"><%= user.email%></a> </br>
+        username: <%= user.username %>
+      </div>
     </div>
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum aperiam vero excepturi saepe
     iure minima, quis sint officiis eius aut ea! Delectus consequatur aliquam quis omnis iste,
     officia iure suscipit?
   </div>
-  <div class="col-md-8">
+  <div class="col-md-8 col-xs-6">
     <h3><%= user.username%>'s campgrounds</h3>
     <ul>
       <% campgrounds.forEach(function(campground){ %>
-      <li><a href="/campgronds/<%=campground.id %>"> <%= campground.name %></a></li>
+      <li><a href="/campgrounds/<%=campground.id %>"> <%= campground.name %></a></li>
       <%})%>
     </ul>
   </div>
