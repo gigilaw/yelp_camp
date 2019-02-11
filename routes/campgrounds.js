@@ -47,7 +47,7 @@ router.post(`/`, middleware.isLoggedIn, function(req, res) {
   let name = req.body.name;
   let img = req.body.img;
   let price = req.body.price;
-  let des = req.body.description;
+  let description = req.body.description;
   let author = {
     id: req.user._id,
     username: req.user.username
@@ -64,7 +64,7 @@ router.post(`/`, middleware.isLoggedIn, function(req, res) {
       name: name,
       price: price,
       image: img,
-      description: des,
+      description: description,
       author: author,
       location: location,
       lat: lat,
@@ -118,7 +118,7 @@ router.put('/:id', middleware.checkCampgroundOwner, function(req, res) {
     req.body.campground.lng = data[0].longitude;
     req.body.campground.location = data[0].formattedAddress;
 
-    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(
+    Campground.findOneAndUpdate(req.params.id, req.body.campground, function(
       err,
       updatedCampground
     ) {
