@@ -76,3 +76,14 @@ body {
 .delete-form {
   display: inline-block;
 }
+.checked {
+  color: orange;
+}
+
+.card-title {
+  margin-bottom: 0.4rem;
+}
+
+#infoB {
+  margin-top: 10px;
+}

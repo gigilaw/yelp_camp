@@ -14,11 +14,9 @@ let user = require('./models/user');
 let commentRoutes = require('./routes/comments');
 let campgroundRoutes = require('./routes/campgrounds');
 let indexRoutes = require('./routes/index');
+let reviewRoutes = require('./routes/reviews');
 
-mongoose.connect(
-  'mongodb://localhost/yelp_camp',
-  { useNewUrlParser: true }
-);
+mongoose.connect('mongodb://localhost/yelp_camp', { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set(`view engine`, `ejs`);
 app.use(express.static(__dirname + '/public'));
@@ -50,6 +48,7 @@ app.use(function(req, res, next) {
 app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
+app.use('/campgrounds/:id/reviews', reviewRoutes);
 
 app.listen(3000, () => {
   console.log('Server Started');

@@ -3,6 +3,7 @@ let router = express.Router();
 let Campground = require('../models/campgrounds');
 let middleware = require('../middleware');
 let NodeGeocoder = require('node-geocoder');
+let Review = require('../models/review');
 let { isLoggedIn, checkCampgroundOwner } = middleware;
 
 var options = {
@@ -91,6 +92,7 @@ router.get('/:id', function(req, res) {
   //find campground with said ID
   Campground.findById(req.params.id)
     .populate('comments')
+    .populate({ path: 'reviews', options: { sort: { createdAt: -1 } } })
     .exec(function(err, foundCampground) {
       if (err) {
         console.log(err);
@@ -109,6 +111,7 @@ router.get('/:id/edit', checkCampgroundOwner, function(req, res) {
 });
 //Update route
 router.put('/:id', checkCampgroundOwner, function(req, res) {
+  delete req.body.campground.rating;
   //find and update correct campground
   geocoder.geocode(req.body.location, function(err, data) {
     if (err || !data.length) {
@@ -118,6 +121,7 @@ router.put('/:id', checkCampgroundOwner, function(req, res) {
     req.body.campground.lat = data[0].latitude;
     req.body.campground.lng = data[0].longitude;
     req.body.campground.location = data[0].formattedAddress;
+
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(
       err,
       updatedCampground
