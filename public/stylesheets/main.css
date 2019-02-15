@@ -91,3 +91,7 @@ body {
 .user {
   margin-right: 10px;
 }
+
+#goBack {
+  padding: 10px 0px;
+}
