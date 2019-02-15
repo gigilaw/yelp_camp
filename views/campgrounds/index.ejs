@@ -38,7 +38,9 @@
             <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
             <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
             <% } %>
-          <a href="/campgrounds/<%= campground._id %>" id='infoB' class="btn btn-primary">More Info</a>
+            <div>
+                <a href="/campgrounds/<%= campground._id %>" id='infoB' class="btn btn-primary">More Info</a>
+            </div>
         </div>
       </div>
     </div>
