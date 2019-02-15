@@ -95,3 +95,11 @@ body {
 #goBack {
   padding: 10px 0px;
 }
+
+#reviewText {
+  margin-top: 35px;
+}
+
+#goBack {
+  margin: 10px auto;
+}
