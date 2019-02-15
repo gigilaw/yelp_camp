@@ -100,6 +100,6 @@ body {
   margin-top: 35px;
 }
 
-#goBack {
-  margin: 10px auto;
+body #date {
+  text-align: right;
 }
