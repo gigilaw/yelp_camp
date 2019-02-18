@@ -19,7 +19,10 @@ let reviewRoutes = require('./routes/reviews');
 mongoose.connect(
   'mongodb+srv://gigilaw14:' +
     process.env.MONGOPWD +
-    '@cluster0-wafee.mongodb.net/gigi-yelp-camp?retryWrites=true'
+    '@cluster0-wafee.mongodb.net/gigi-yelp-camp?retryWrites=true',
+  function(err) {
+    if (err) throw err;
+  }
 );
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set(`view engine`, `ejs`);
@@ -54,7 +57,7 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
   console.log('Server Started');
 });
 
