@@ -15,7 +15,7 @@ var options = {
 
 var geocoder = NodeGeocoder(options);
 
-router.get(`/campgrounds`, function(req, res) {
+router.get(`/`, function(req, res) {
   let noMatch = null;
   if (req.query.search) {
     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
@@ -23,6 +23,7 @@ router.get(`/campgrounds`, function(req, res) {
       if (err) {
         console.log(err);
       } else {
+        console.log('oranges');
         if (allCampgrounds.length < 1) {
           noMatch = 'No campgrounds found, please try again.';
         }
@@ -30,6 +31,7 @@ router.get(`/campgrounds`, function(req, res) {
       }
     });
   } else {
+    console.log('apples');
     Campground.find({}, function(err, allCampgrounds) {
       if (err) {
         console.log(err);
