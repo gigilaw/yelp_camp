@@ -1,25 +1,44 @@
 <% include ../header %>
-
-<div id="user" class="row">
-  <div class="col-md-4 col-xs-6">
-    <h1><%= user.firstName + ' ' + user.lastName%></h1>
-    <div id="userProfile" class="thumbnail">
-      <img src="<%=user.avatar%>" alt="user profile image" />
-      <div class="caption">
-        email: <a href="mailto:<%=user.email%>"><%= user.email%></a> </br>
-        username: <%= user.username %>
+<div class="container">
+  <div id="user" class="row">
+    <div class="col-md-4 col-6 col-s-6">
+      <h1 id="userName"><%= user.firstName + ' ' + user.lastName%></h1>
+      <div id="userProfile" class="thumbnail">
+        <img src="https://png.pngtree.com/svg/20161027/service_default_avatar_182956.png" alt="user profile image" />
+        <div class="caption">
+          email: <a href="mailto:<%=user.email%>"><%= user.email%></a> </br>
+          username: <%= user.username %>
+        </div>
+      </div>
+      <div class="description">
+        <h5>User description:</h5>
+        <p><%=user.userDescription%></p>
       </div>
     </div>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum aperiam vero excepturi saepe
-    iure minima, quis sint officiis eius aut ea! Delectus consequatur aliquam quis omnis iste,
-    officia iure suscipit?
-  </div>
-  <div class="col-md-8 col-xs-6">
-    <h3><%= user.username%>'s campgrounds</h3>
-    <ul>
-      <% campgrounds.forEach(function(campground){ %>
-      <li><a href="/campgrounds/<%=campground.id %>"> <%= campground.name %></a></li>
-      <%})%>
-    </ul>
+    <div class="col-md-8 col-6 col-s-6">
+      <div id="campgroundList">
+        <h3><%= user.username%>'s campgrounds</h3>
+      </div>
+      <ul>
+        <% campgrounds.forEach(function(campground){ %>
+        <li><strong><a href="/campgrounds/<%=campground.id %>"> <%= campground.name %></a></strong> ~ 
+          <% if (campground.rating === 0) { %>
+            <em>No reviews yet.</em>
+            <% } else { %>
+          <p id="userPageRating">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+              <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+              <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+              <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+              <em>(total reviews: <%= campground.reviews.length %>)</em>
+          </p>
+          <%}%> ~
+          <em><%=moment(campground.createdAt).fromNow()%></em> 
+          
+        </li>
+        <%})%>
+      </ul>
+    </div>
   </div>
 </div>

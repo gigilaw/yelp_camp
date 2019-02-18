@@ -17,6 +17,13 @@
   z-index: 2;
 }
 
+.form-signin .goBack {
+  padding-top: 0;
+}
+
+#inputPassword {
+  margin-bottom: 30px;
+}
 .topBox {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
@@ -40,6 +47,7 @@
 
 body {
   margin-bottom: 60px;
+  background-color: #eff1f4;
 }
 
 .container .text-muted {
@@ -47,7 +55,7 @@ body {
 }
 
 .thumbnail img {
-  width: 100%;
+  width: 50%;
 }
 
 .thumbnail {
@@ -83,15 +91,18 @@ body {
   margin-bottom: 0.4rem;
 }
 
+.indexImg {
+  height: 25%;
+}
 #infoB {
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .user {
   margin-right: 10px;
 }
 
-#goBack {
+.goBack {
   padding: 10px 0px;
 }
 
@@ -101,4 +112,20 @@ body {
 
 body #date {
   text-align: right;
+}
+
+.description {
+  margin-top: 30px;
+}
+
+#campgroundList {
+  text-align: left;
+}
+
+#userName {
+  text-align: left;
+}
+
+#userPageRating {
+  margin: 0;
 }

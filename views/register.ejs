@@ -18,21 +18,14 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input
           id="inputPassword"
-          class="form-control middleBox"
+          class="form-control bottomBox"
           type="password"
           name="password"
           placeholder="password"
+          minlength=8
           required
         />
-        <label for="inputAvatar" class="sr-only">Avatar</label>
-        <input
-          id="inputAvatar"
-          class="form-control bottomBox"
-          type="text"
-          name="avatar"
-          placeholder="avatar url"
-          required
-        />
+       
         <h6>Personal Info</h6>
         <label for="inputFirstName" class="sr-only">First Name</label>
         <input
@@ -53,12 +46,23 @@
           required
         />
         <label for="inputEmail" class="sr-only">email</label>
-        <input id="inputEmail" class="form-control bottomBox" type="email" name="email" placeholder="email" required/>
+        <input id="inputEmail" class="form-control middleBox" type="email" name="email" placeholder="email" required/>
+        <label for="inputDescription" class="sr-only">Description</label>
+        <textarea
+          id="inputDescription"
+          class="form-control bottomBox"
+          name="userDescription"
+          placeholder="Tell us about yourself"
+          rows=5
+          required
+        ></textarea>
         
       </br>
         <button class="btn btn-lg btn-primary btn-block">Sign up!</button>
       </form>
-      <div class="form-signin"><a href="/campgrounds">Go Back</a></div>
+      <div class="form-signin">
+        <a class="btn goBack" href="/campgrounds"><i class="fa fa-arrow-left"></i> Go back</a>
+      </div>
     </div>
   </div>
 </div>

@@ -13,6 +13,12 @@
           </p>
           <h5 class="card-title"><%= campground.name %></h5>
           <p class="card-text"><%= campground.description%></p>
+          <p>
+              <em
+                >Submitted by: <a href="/users/<%=campground.author.id%>"><%= campground.author.username %></a>, <%=
+                moment(campground.createdAt).fromNow()%></em
+              >
+          </p>
           <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
           <a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
           <form
@@ -35,12 +41,6 @@
               <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
               <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
               <em>(total reviews: <%= campground.reviews.length %>)</em>
-          </p>
-          <p>
-            <em
-              >Submitted by: <a href="/users/<%=campground.author.id%>"><%= campground.author.username %></a>, <%=
-              moment(campground.createdAt).fromNow()%></em
-            >
           </p>
         </div>
       </div>

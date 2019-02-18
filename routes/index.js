@@ -23,7 +23,7 @@ router.post('/register', function(req, res) {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
-    avatar: req.body.avatar
+    userDescription: req.body.userDescription
   });
   user.register(newUser, req.body.password, function(err, user) {
     if (err) {

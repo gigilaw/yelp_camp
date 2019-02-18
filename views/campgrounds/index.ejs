@@ -22,11 +22,10 @@
       <h3><%= noMatch %></h3>
       <% }%>
     </div>
-    
     <% campgrounds.forEach(function(campground){ %>
     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
       <div class="card">
-        <img class='card-img-top' src="<%= campground.image %>" alt="<%= campground.name%>"/>
+        <img class='card-img-top indexImg' src="<%= campground.image %>" alt="<%= campground.name%>"/>
         <div class="card-body">
           <h5 class="card-title"><%= campground.name %></h5>
           <% if (campground.rating === 0) { %>
