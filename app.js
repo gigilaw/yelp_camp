@@ -33,6 +33,13 @@ app.locals.moment = require('moment');
 //seedDB();
 
 //Passport config
+app.use(
+  require('express-session')({
+    secret: 'lalalalalala',
+    resave: false,
+    saveUninitialized: false
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new localStrategy(user.authenticate()));
