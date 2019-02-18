@@ -15,7 +15,7 @@ var options = {
 
 var geocoder = NodeGeocoder(options);
 
-router.get(`/`, function(req, res) {
+router.get(`/campgrounds`, function(req, res) {
   let noMatch = null;
   if (req.query.search) {
     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
