@@ -16,7 +16,11 @@ let campgroundRoutes = require('./routes/campgrounds');
 let indexRoutes = require('./routes/index');
 let reviewRoutes = require('./routes/reviews');
 
-mongoose.connect('mongodb://localhost/yelp_camp', { useNewUrlParser: true });
+mongoose.connect(
+  'mongodb+srv://gigilaw14:' +
+    process.env.MONGOPWD +
+    '@cluster0-wafee.mongodb.net/gigi-yelp-camp?retryWrites=true'
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set(`view engine`, `ejs`);
 app.use(express.static(__dirname + '/public'));
