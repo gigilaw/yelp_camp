@@ -23,7 +23,6 @@ router.get(`/`, function(req, res) {
       if (err) {
         console.log(err);
       } else {
-        console.log('oranges');
         if (allCampgrounds.length < 1) {
           noMatch = 'No campgrounds found, please try again.';
         }
@@ -31,9 +30,7 @@ router.get(`/`, function(req, res) {
       }
     });
   } else {
-    console.log('apples');
     Campground.find({}, function(err, allCampgrounds) {
-      console.log(allCampgrounds, req.user);
       if (err) {
         console.log(err);
       } else {
