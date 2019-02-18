@@ -16,7 +16,7 @@ let campgroundRoutes = require('./routes/campgrounds');
 let indexRoutes = require('./routes/index');
 let reviewRoutes = require('./routes/reviews');
 
-console.log(process.env.MONGOPWD);
+console.log('pwd', process.env.MONGOPWD);
 mongoose.connect(
   'mongodb+srv://gigilaw14:' +
     process.env.MONGOPWD +

@@ -31,6 +31,7 @@
     "heroku": "^7.21.0",
     "method-override": "^3.0.0",
     "moment": "^2.24.0",
+    "mongodb": "^3.1.13",
     "mongoose": "^5.4.9",
     "node-geocoder": "^3.22.0",
     "nodemailer": "^5.1.1",
