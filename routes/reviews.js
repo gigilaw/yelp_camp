@@ -66,15 +66,23 @@ router.post('/', isLoggedIn, checkReviewExistence, function(req, res) {
 
 //Edit reviews
 router.get('/:review_id/edit', checkReviewOwnership, function(req, res) {
-  Review.findById(req.params.review_id, function(err, foundReview) {
+  Campground.findById(req.params.id, function(err, campground) {
     if (err) {
-      req.flash('error', err.message);
-      return res.redirect('back');
+      console.log('error: campground not found');
     }
-    res.render('reviews/edit', { campground_id: req.params.id, review: foundReview });
+    Review.findById(req.params.review_id, function(err, foundReview) {
+      if (err) {
+        req.flash('error', err.message);
+        return res.redirect('back');
+      }
+      res.render('reviews/edit', {
+        campground_id: req.params.id,
+        review: foundReview,
+        campground: campground
+      });
+    });
   });
 });
-
 //Update reviews
 router.put('/:review_id', checkReviewOwnership, function(req, res) {
   Review.findByIdAndUpdate(req.params.review_id, req.body.review, { new: true }, function(

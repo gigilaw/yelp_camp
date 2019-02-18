@@ -12,7 +12,18 @@
             $<%= campground.price %>/night
           </p>
           <h5 class="card-title"><%= campground.name %></h5>
-            <% if (campground.rating === 0) { %>
+          <p class="card-text"><%= campground.description%></p>
+          <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
+          <a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+          <form
+            class="delete-form"
+            action="/campgrounds/<%=campground._id%>?_method=delete"
+            method="post"
+          >
+            <button class="btn btn-danger">Delete</button>
+          </form>
+          <% }%>
+          <% if (campground.rating === 0) { %>
           <h5>
             <em>No reviews yet.</em>
           </h5>
@@ -31,18 +42,6 @@
               moment(campground.createdAt).fromNow()%></em
             >
           </p>
-          <hr />
-          <p class="card-text"><%= campground.description%></p>
-          <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
-          <a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
-          <form
-            class="delete-form"
-            action="/campgrounds/<%=campground._id%>?_method=delete"
-            method="post"
-          >
-            <button class="btn btn-danger">Delete</button>
-          </form>
-          <% }%>
         </div>
       </div>
       
