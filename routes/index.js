@@ -48,7 +48,8 @@ router.post(
   '/login',
   passport.authenticate('local', {
     successRedirect: '/campgrounds',
-    failureRedirect: '/login'
+    failureRedirect: '/login',
+    failureFlash: 'Invalid username or password.'
   }),
   function(req, res) {}
 );
